@@ -15,7 +15,7 @@ namespace Testing.Pages
             WaitForPageLoad();
         }
         
-        public virtual void WaitForPageLoad()
+        protected virtual void WaitForPageLoad()
         {
             new WebDriverWait(_driver, TimeSpan.FromSeconds(TestSettings.PageTimeout)).Until(
                 ExpectedConditions.ElementExists(By.XPath("//body")));

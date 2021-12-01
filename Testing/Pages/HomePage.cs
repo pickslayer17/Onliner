@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using System;
+using OpenQA.Selenium;
 
 namespace Testing.Pages
 {
@@ -7,7 +8,7 @@ namespace Testing.Pages
         public HomePage(IWebDriver driver) : base(driver)
         {
         }
-
+        
         private IWebElement _enterButton =>
             _driver.FindElement(By.XPath("//div[@id='userbar']//div[starts-with(@class,'auth-bar__item')][1]"));
 
