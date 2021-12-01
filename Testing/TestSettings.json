@@ -1,10 +1,21 @@
 {
   "Settings": {
     "Common": {
-      "Timeout": 30
+      "Timeouts": {
+        "Page" : 30,
+        "Frame" : 20
+      }
     },
-    "Test" : {
-        "HomeUrl": "https://www.onliner.by/"
+    "Test": {
+      "HomeUrl": "https://www.onliner.by/",
+      "User": {
+        "Name": "taram99815@patmui.com",
+        "Password": "casm9hir8LOT@klap"
+      },
+      "Product": {
+        "Name": "Thinkpad T14",
+        "NameAlt": "Thinkpad T14S"
+      }
     }
   }
 }

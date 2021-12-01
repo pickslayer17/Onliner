@@ -15,5 +15,8 @@ namespace Testing.Lib
         {
             _driver.Url = url;
         }
+
+        public string GetCurrentUrl() => _driver.Url;
+
     }
 }

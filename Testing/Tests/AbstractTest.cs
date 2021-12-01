@@ -20,6 +20,7 @@ namespace Testing
             IDriverConfig driverConfig = new ChromeConfig();
             new DriverManager().SetUpDriver(driverConfig, VersionResolveStrategy.MatchingBrowser);
             _driver = new ChromeDriver();
+            _driver.Manage().Window.Maximize();
 
             App = new AppLib(_driver);
         }

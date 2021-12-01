@@ -7,7 +7,7 @@ namespace Testing.Pages
 {
     public abstract class AbstractBasePage
     {
-        private IWebDriver _driver;
+        protected readonly IWebDriver _driver;
 
         protected AbstractBasePage(IWebDriver driver)
         {
@@ -16,7 +16,7 @@ namespace Testing.Pages
         
         public virtual void WaitForPageLoad()
         {
-            new WebDriverWait(_driver, TimeSpan.FromSeconds(TestSettings.Timeout)).Until(
+            new WebDriverWait(_driver, TimeSpan.FromSeconds(TestSettings.PageTimeout)).Until(
                 ExpectedConditions.ElementExists(By.XPath("//body")));
         }
     }
