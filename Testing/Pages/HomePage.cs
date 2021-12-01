@@ -2,7 +2,7 @@
 
 namespace Testing.Pages
 {
-    public class HomePage : AbstractBasePage
+    public class HomePage : AbstractPage
     {
         public HomePage(IWebDriver driver) : base(driver)
         {

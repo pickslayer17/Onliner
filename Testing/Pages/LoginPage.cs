@@ -2,7 +2,7 @@
 
 namespace Testing.Pages
 {
-    public class LoginPage : AbstractBasePage
+    public class LoginPage : AbstractPage
     {
         public LoginPage(IWebDriver driver) : base(driver)
         {

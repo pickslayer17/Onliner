@@ -14,7 +14,6 @@ namespace Testing
         public void SearchProduct()
         {
             App.Flow.GoTo(TestSettings.HomeUrl);
-            App.Pages.HomePage.WaitForPageLoad();
             App.Pages.HomePage.FillSearchInput(TestSettings.ProductName);
 
             List<string> productNames = App.Pages.HomePage.SearchFrame.GetProductNames();

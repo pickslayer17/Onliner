@@ -5,13 +5,14 @@ using SeleniumExtras.WaitHelpers;
 
 namespace Testing.Pages
 {
-    public abstract class AbstractBasePage
+    public abstract class AbstractPage
     {
         protected readonly IWebDriver _driver;
 
-        protected AbstractBasePage(IWebDriver driver)
+        protected AbstractPage(IWebDriver driver)
         {
             _driver = driver;
+            WaitForPageLoad();
         }
         
         public virtual void WaitForPageLoad()

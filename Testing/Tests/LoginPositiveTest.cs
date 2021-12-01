@@ -9,7 +9,6 @@ namespace Testing
         public void Login()
         {
             App.Flow.GoTo(TestSettings.HomeUrl);
-            App.Pages.HomePage.WaitForPageLoad();
             var user = TestSettings.UserName;
             var password = TestSettings.UserPassword;
             LoginUserPassword(user, password);
@@ -21,7 +20,6 @@ namespace Testing
         private void LoginUserPassword(string name, string password)
         {
             App.Pages.HomePage.ClickEnterButton();
-            App.Pages.LoginPage.WaitForPageLoad();
             App.Pages.LoginPage.FillEmail(name);
             App.Pages.LoginPage.FillPassword(password);
             App.Pages.LoginPage.ClickEnterButton();
