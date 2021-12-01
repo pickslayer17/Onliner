@@ -1,0 +1,10 @@
+{
+  "Settings": {
+    "Common": {
+      "Timeout": 30
+    },
+    "Test" : {
+        "HomeUrl": "https://www.onliner.by/"
+    }
+  }
+}
