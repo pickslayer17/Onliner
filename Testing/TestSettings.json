@@ -3,7 +3,8 @@
     "Common": {
       "Timeouts": {
         "Page" : 30,
-        "Frame" : 20
+        "Frame" : 20,
+        "Element" : 10
       }
     },
     "Test": {

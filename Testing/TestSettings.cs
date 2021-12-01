@@ -14,6 +14,7 @@ namespace Testing
 
         public static int PageTimeout { get; set; }
         public static int FrameTimeout { get; set; }
+        public static int ElementTimeout { get; set; }
         public static string HomeUrl { get; set; }
         public static string UserName { get; set; }
         public static string UserPassword { get; set; }
@@ -24,6 +25,7 @@ namespace Testing
         {
             PageTimeout = TryParseIntValue(TestConfiguration["Settings:Common:Timeouts:Page"]);
             FrameTimeout = TryParseIntValue(TestConfiguration["Settings:Common:Timeouts:Frame"]);
+            ElementTimeout = TryParseIntValue(TestConfiguration["Settings:Common:Timeouts:Element"]);
             HomeUrl = TestConfiguration["Settings:Test:HomeUrl"];
             UserName = TestConfiguration["Settings:Test:User:Name"];
             UserPassword = TestConfiguration["Settings:Test:User:Password"];
