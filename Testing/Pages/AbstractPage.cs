@@ -14,11 +14,16 @@ namespace Testing.Pages
             _driver = driver;
             WaitForPageLoad();
         }
-        
+
         protected virtual void WaitForPageLoad()
         {
             new WebDriverWait(_driver, TimeSpan.FromSeconds(TestSettings.PageTimeout)).Until(
                 ExpectedConditions.ElementExists(By.XPath("//body")));
+        }
+
+        public virtual bool IsLoaded()
+        {
+            return ((IJavaScriptExecutor) _driver).ExecuteScript("return document.readyState").Equals("complete");
         }
     }
 }
