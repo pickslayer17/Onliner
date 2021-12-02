@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using SeleniumExtras.WaitHelpers;
 using Testing.Extensions;
 
 namespace Testing.Pages
@@ -24,7 +23,6 @@ namespace Testing.Pages
             var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(TestSettings.ElementTimeout));
             var productNames = new List<string>();
             foreach (var element in _productLinks) productNames.Add(element.Text);
-
             return productNames;
         }
     }
