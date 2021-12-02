@@ -14,7 +14,7 @@ namespace Testing.Pages
             _driver = driver;
             new WebDriverWait(driver, TimeSpan.FromSeconds(TestSettings.FrameTimeout)).Until(
                 ExpectedConditions.ElementIsVisible(locator));
-            IWebElement frame = _driver.FindElement(locator);
+            var frame = _driver.FindElement(locator);
             _driver.SwitchTo().Frame(frame);
         }
     }

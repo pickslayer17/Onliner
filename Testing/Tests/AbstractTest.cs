@@ -8,12 +8,20 @@ using WebDriverManager.DriverConfigs;
 using WebDriverManager.DriverConfigs.Impl;
 using WebDriverManager.Helpers;
 
+[assembly: Parallelizable(ParallelScope.All)]
+
 namespace Testing
 {
     public abstract class AbstractTest : IDisposable
     {
         private IWebDriver _driver;
         public AppLib App { get; private set; }
+
+        public void Dispose()
+        {
+            _driver.Quit();
+        }
+
         [SetUp]
         public void Setup()
         {
@@ -29,10 +37,6 @@ namespace Testing
         public void TearDown()
         {
             _driver.Close();
-        }
-        public void Dispose()
-        {
-            _driver.Quit();
         }
     }
 }

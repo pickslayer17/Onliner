@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
-using Testing.Extensions;
 
 namespace Testing.Pages
 {
@@ -13,24 +12,20 @@ namespace Testing.Pages
         public SearchFrame(IWebDriver driver, By locator) : base(driver, locator)
         {
         }
-        
-        private ReadOnlyCollection<IWebElement> _productLinks => 
-            new WebDriverWait(_driver, TimeSpan.FromSeconds(TestSettings.ElementTimeout)).
-                Until(ExpectedConditions.
-                    PresenceOfAllElementsLocatedBy(
-                        By.XPath("//div[@class='product__title']/a[@target='_parent']")
-                        )
-                );
+
+        private ReadOnlyCollection<IWebElement> _productLinks =>
+            new WebDriverWait(_driver, TimeSpan.FromSeconds(TestSettings.ElementTimeout)).Until(
+                ExpectedConditions.PresenceOfAllElementsLocatedBy(
+                    By.XPath("//div[@class='product__title']/a[@target='_parent']")
+                )
+            );
 
 
         public List<string> GetProductNames()
         {
-            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(TestSettings.ElementTimeout));
-            List<string> productNames = new List<string>();
-            foreach (var element in _productLinks)
-            {
-                productNames.Add(element.Text);
-            }
+            var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(TestSettings.ElementTimeout));
+            var productNames = new List<string>();
+            foreach (var element in _productLinks) productNames.Add(element.Text);
 
             return productNames;
         }

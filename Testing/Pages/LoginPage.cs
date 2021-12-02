@@ -7,9 +7,15 @@ namespace Testing.Pages
         public LoginPage(IWebDriver driver) : base(driver)
         {
         }
-        private IWebElement _emailInput => _driver.FindElement(By.XPath("//input[@type='text' and contains(@class,'auth-input')]"));
-        private IWebElement _passwordInput => _driver.FindElement(By.XPath("//input[@type='password' and contains(@class,'auth-input')]"));
-        private IWebElement _enterButton => _driver.FindElement(By.XPath("//button[@type='submit' and contains(@class,'auth-button')]"));
+
+        private IWebElement _emailInput =>
+            _driver.FindElement(By.XPath("//input[@type='text' and contains(@class,'auth-input')]"));
+
+        private IWebElement _passwordInput =>
+            _driver.FindElement(By.XPath("//input[@type='password' and contains(@class,'auth-input')]"));
+
+        private IWebElement _enterButton =>
+            _driver.FindElement(By.XPath("//button[@type='submit' and contains(@class,'auth-button')]"));
 
         public void FillEmail(string name)
         {

@@ -4,7 +4,7 @@ namespace Testing.Lib
 {
     public class FlowLib
     {
-        private IWebDriver _driver;
+        private readonly IWebDriver _driver;
 
         public FlowLib(IWebDriver driver)
         {
@@ -16,7 +16,9 @@ namespace Testing.Lib
             _driver.Url = url;
         }
 
-        public string GetCurrentUrl() => _driver.Url;
-
+        public string GetCurrentUrl()
+        {
+            return _driver.Url;
+        }
     }
 }

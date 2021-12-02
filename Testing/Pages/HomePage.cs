@@ -1,5 +1,4 @@
-﻿using System;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 
 namespace Testing.Pages
 {
@@ -20,8 +19,19 @@ namespace Testing.Pages
         public SearchFrame SearchFrame => new SearchFrame(_driver, By.XPath("//iframe[@class='modal-iframe']"));
 
 
-        public void ClickEnterButton() => _enterButton.Click();
-        public void FillSearchInput(string text) => _searchInout.SendKeys(text);
-        public void ClickCatalogLink() => _catalogLink.Click();
+        public void ClickEnterButton()
+        {
+            _enterButton.Click();
+        }
+
+        public void FillSearchInput(string text)
+        {
+            _searchInout.SendKeys(text);
+        }
+
+        public void ClickCatalogLink()
+        {
+            _catalogLink.Click();
+        }
     }
 }

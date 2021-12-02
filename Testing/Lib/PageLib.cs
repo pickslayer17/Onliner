@@ -5,9 +5,10 @@ namespace Testing.Lib
 {
     public class PageLib
     {
+        public readonly CatalogPage CatalogPage;
         public readonly HomePage HomePage;
         public readonly LoginPage LoginPage;
-        public readonly CatalogPage CatalogPage;
+
         public PageLib(IWebDriver driver)
         {
             HomePage = new HomePage(driver);
