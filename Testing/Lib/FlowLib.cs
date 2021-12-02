@@ -11,14 +11,9 @@ namespace Testing.Lib
             _driver = driver;
         }
 
-        public void GoTo(string url)
-        {
-            _driver.Url = url;
-        }
+        public void GoTo(string url) => _driver.Url = url;
 
-        public string GetCurrentUrl()
-        {
-            return _driver.Url;
-        }
+        public string GetCurrentUrl() => _driver.Url;
+        public void Back() => _driver.Navigate().Back();
     }
 }

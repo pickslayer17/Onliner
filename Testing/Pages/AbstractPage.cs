@@ -15,15 +15,10 @@ namespace Testing.Pages
             WaitForPageLoad();
         }
 
-        protected virtual bool WaitForPageLoad()
-        {
-            return new WebDriverWait(_driver, TimeSpan.FromSeconds(TestSettings.PageTimeout)).Until(PageLoadConditions
+        protected virtual bool WaitForPageLoad() =>
+            new WebDriverWait(_driver, TimeSpan.FromSeconds(TestSettings.PageTimeout)).Until(PageLoadConditions
                 .IsLoadedReadyState);
-        }
 
-        public virtual bool IsLoaded()
-        {
-            return PageLoadConditions.IsLoadedReadyState(_driver);
-        }
+        public virtual bool IsLoaded() => PageLoadConditions.IsLoadedReadyState(_driver);
     }
 }
