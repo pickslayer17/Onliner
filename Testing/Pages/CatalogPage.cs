@@ -4,6 +4,7 @@ using System.Linq;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
+using Testing.Extensions;
 
 namespace Testing.Pages
 {
@@ -18,28 +19,19 @@ namespace Testing.Pages
 
         public ElectronicsCategories CurrentCategory { get; private set; }
 
-        private ReadOnlyCollection<IWebElement> _catalogItemTitles =>
-            new WebDriverWait(_driver, TimeSpan.FromSeconds(TestSettings.ElementTimeout)).Until(
-                ExpectedConditions.PresenceOfAllElementsLocatedBy(
-                    By.XPath("//span[@class='catalog-navigation-classifier__item-title']")
-                )
-            );
+        private ReadOnlyCollection<IWebElement> _catalogItemTitles => WaitExtensions.WaitAndGetElements(_driver,
+            By.XPath("//span[@class='catalog-navigation-classifier__item-title']"));
 
-        private ReadOnlyCollection<IWebElement> _listAsideTitles =>
-            new WebDriverWait(_driver, TimeSpan.FromSeconds(TestSettings.ElementTimeout)).Until(
-                ExpectedConditions.PresenceOfAllElementsLocatedBy(
-                    By.XPath(_listAsideTitlesXpath)
-                )
-            );
 
-        private ReadOnlyCollection<IWebElement> _listDropDownTitleSpans =>
-            new WebDriverWait(_driver, TimeSpan.FromSeconds(TestSettings.ElementTimeout)).Until(
-                ExpectedConditions.PresenceOfAllElementsLocatedBy(
-                    By.XPath(
-                        string.Format("{0}[{1}]/div[2]/div/a/span/span[2]", _listAsideTitlesXpath,
-                            (int) CurrentCategory)
-                    )
-                ));
+        private ReadOnlyCollection<IWebElement> _listAsideTitles => WaitExtensions.WaitAndGetElements(_driver,
+            By.XPath(_listAsideTitlesXpath));
+
+        private ReadOnlyCollection<IWebElement> _listDropDownTitleSpans => WaitExtensions.WaitAndGetElements(_driver,
+            By.XPath(
+                string.Format("{0}[{1}]/div[2]/div/a/span/span[2]", _listAsideTitlesXpath,
+                    (int) CurrentCategory)
+            )
+        );
 
         public override bool IsLoaded() => _catalogItemTitles.Any();
 

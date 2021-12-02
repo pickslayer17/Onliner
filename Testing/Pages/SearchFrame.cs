@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
+using Testing.Extensions;
 
 namespace Testing.Pages
 {
@@ -13,12 +14,9 @@ namespace Testing.Pages
         {
         }
 
-        private ReadOnlyCollection<IWebElement> _productLinks =>
-            new WebDriverWait(_driver, TimeSpan.FromSeconds(TestSettings.ElementTimeout)).Until(
-                ExpectedConditions.PresenceOfAllElementsLocatedBy(
-                    By.XPath("//div[@class='product__title']/a[@target='_parent']")
-                )
-            );
+        private ReadOnlyCollection<IWebElement> _productLinks => WaitExtensions.WaitAndGetElements(_driver,
+            By.XPath("//div[@class='product__title']/a[@target='_parent']")
+        );
 
 
         public List<string> GetProductNames()
