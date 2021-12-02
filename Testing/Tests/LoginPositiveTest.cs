@@ -11,9 +11,7 @@ namespace Testing
             var user = TestSettings.UserName;
             var password = TestSettings.UserPassword;
             LoginUserPassword(user, password);
-            var expectedUrl = TestSettings.HomeUrl;
-            var currentUrl = App.Flow.GetCurrentUrl();
-            Assert.That(expectedUrl == currentUrl);
+            Assert.That(App.Pages.HomePage.IsLoaded, "Page is not loaded");
         }
 
         private void LoginUserPassword(string name, string password)

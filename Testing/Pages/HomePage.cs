@@ -1,4 +1,7 @@
-﻿using OpenQA.Selenium;
+﻿using System;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 
 namespace Testing.Pages
 {
@@ -16,22 +19,23 @@ namespace Testing.Pages
         private IWebElement _catalogLink =>
             _driver.FindElement(By.XPath("(//span[@class='b-main-navigation__text'])[1]"));
 
+        private By _profileImageDivBy => By.XPath("//div[contains(@class, 'b-top-profile__image')]"); 
+        private IWebElement _profileImageDiv =>
+            _driver.FindElement(_profileImageDivBy);
         public SearchFrame SearchFrame => new SearchFrame(_driver, By.XPath("//iframe[@class='modal-iframe']"));
+        
+
+        public void ClickEnterButton() => _enterButton.Click();
+        public void FillSearchInput(string text) =>_searchInout.SendKeys(text);
+        public void ClickCatalogLink() => _catalogLink.Click();
 
 
-        public void ClickEnterButton()
+        public override bool IsLoaded()
         {
-            _enterButton.Click();
-        }
-
-        public void FillSearchInput(string text)
-        {
-            _searchInout.SendKeys(text);
-        }
-
-        public void ClickCatalogLink()
-        {
-            _catalogLink.Click();
+            WaitForPageLoad();
+            new WebDriverWait(_driver, TimeSpan.FromSeconds(TestSettings.ElementTimeout)).Until(
+                ExpectedConditions.ElementExists(_profileImageDivBy));
+            return _driver.Url == TestSettings.HomeUrl;
         }
     }
 }
