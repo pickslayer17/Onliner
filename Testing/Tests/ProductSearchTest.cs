@@ -20,7 +20,12 @@ namespace Testing
             foreach (var name in productNames)
             {
                 Console.Out.WriteLine(name);
-                Assert.That(name.ContainsIgnoreCase(TestSettings.ProductName) || name.ContainsIgnoreCase(TestSettings.ProductNameAlt));
+                Assert.That(
+                    name.ContainsIgnoreCase(TestSettings.ProductName) ||
+                    name.ContainsIgnoreCase(TestSettings.ProductNameAlt),
+                    $"Expected: {TestSettings.ProductName} or {TestSettings.ProductNameAlt}\n " +
+                    $"But was: {name}"
+                );
             }
         }
     }

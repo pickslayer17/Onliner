@@ -1,7 +1,8 @@
 ﻿using System;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using SeleniumExtras.WaitHelpers;
+using Testing.Extensions;
+
 
 namespace Testing.Pages
 {
@@ -15,15 +16,16 @@ namespace Testing.Pages
             WaitForPageLoad();
         }
 
-        protected virtual void WaitForPageLoad()
+        protected virtual bool WaitForPageLoad()
         {
-            new WebDriverWait(_driver, TimeSpan.FromSeconds(TestSettings.PageTimeout)).Until(
-                ExpectedConditions.ElementExists(By.XPath("//body")));
+            return new WebDriverWait(_driver, TimeSpan.FromSeconds(TestSettings.PageTimeout)).Until(PageLoadConditions.IsLoadedReadyState);
+        }
+        
+        public virtual bool IsLoaded()
+        { 
+            return PageLoadConditions.IsLoadedReadyState(_driver);
         }
 
-        public virtual bool IsLoaded()
-        {
-            return ((IJavaScriptExecutor) _driver).ExecuteScript("return document.readyState").Equals("complete");
-        }
+        
     }
 }

@@ -10,7 +10,7 @@ namespace Testing
         {
             App.Flow.GoTo(TestSettings.HomeUrl);
             App.Pages.HomePage.ClickCatalogLink();
-            Assert.That(App.Pages.CatalogPage.IsLoaded());
+            Assert.That(App.Pages.CatalogPage.IsLoaded);
             Thread.Sleep(2000);
             
         }
