@@ -1,6 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
-using Testing.Extensions;
+using static Testing.Extensions.StringExtensions;
 
 namespace Testing
 {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
 using OpenQA.Selenium;
-using Testing.Extensions;
+using static Testing.Extensions.WaitExtensions;
 
 namespace Testing.Pages
 {
@@ -16,15 +16,15 @@ namespace Testing.Pages
 
         public ElectronicsCategories CurrentCategory { get; private set; }
 
-        private ReadOnlyCollection<IWebElement> _catalogItemTitles => WaitExtensions.WaitAndGetElements(_driver,
+        private ReadOnlyCollection<IWebElement> _catalogItemTitles => WaitAndGetElements(_driver,
             By.XPath("//span[@class='catalog-navigation-classifier__item-title']"));
 
 
-        private ReadOnlyCollection<IWebElement> _listAsideTitles => WaitExtensions.WaitAndGetElements(_driver,
+        private ReadOnlyCollection<IWebElement> _listAsideTitles => WaitAndGetElements(_driver,
             By.XPath(_listAsideTitlesXpath));
 
         //The path is dynamic changed depends on aside_titles
-        private ReadOnlyCollection<IWebElement> _listDropDownTitleSpans => WaitExtensions.WaitAndGetElements(_driver,
+        private ReadOnlyCollection<IWebElement> _listDropDownTitleSpans => WaitAndGetElements(_driver,
             By.XPath(
                 string.Format("{0}[{1}]/div[2]/div/a/span/span[2]", _listAsideTitlesXpath,
                     (int) CurrentCategory)

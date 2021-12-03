@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using Testing.Extensions;
+using static Testing.Extensions.WaitExtensions;
 
 namespace Testing.Pages
 {
@@ -13,7 +13,7 @@ namespace Testing.Pages
         {
         }
 
-        private ReadOnlyCollection<IWebElement> _productLinks => WaitExtensions.WaitAndGetElements(_driver,
+        private ReadOnlyCollection<IWebElement> _productLinks => WaitAndGetElements(_driver,
             By.XPath("//div[@class='product__title']/a[@target='_parent']")
         );
 

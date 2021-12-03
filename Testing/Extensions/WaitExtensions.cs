@@ -13,5 +13,11 @@ namespace Testing.Extensions
                 ExpectedConditions.PresenceOfAllElementsLocatedBy(locator
                 )
             );
+
+        public static IWebElement WaitAndGet(IWebDriver driver, By locator) =>
+            new WebDriverWait(driver, TimeSpan.FromSeconds(TestSettings.ElementTimeout)).Until(
+                ExpectedConditions.ElementExists(locator
+                )
+            );
     }
 }
