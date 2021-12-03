@@ -51,14 +51,8 @@ namespace Testing.Pages.CatalogPages
         private string GetCellValueFromCell(IWebElement cell)
         {
             var value = GetCellSpanFromCell(cell).GetAttribute("innerHTML");
-            if (value == "")
-            {
-                value = cell.Text;
-            }
-            if (value == "")
-            {
-                value = GetCellSpanFromCell(cell).GetAttribute("class").Split(" ").Last();
-            }
+            if (value == "") value = cell.Text;
+            if (value == "") value = GetCellSpanFromCell(cell).GetAttribute("class").Split(" ").Last();
             return value;
         }
 
