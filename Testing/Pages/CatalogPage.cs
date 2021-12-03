@@ -23,6 +23,7 @@ namespace Testing.Pages
         private ReadOnlyCollection<IWebElement> _listAsideTitles => WaitExtensions.WaitAndGetElements(_driver,
             By.XPath(_listAsideTitlesXpath));
 
+        //The path is dynamic changed depends on aside_titles
         private ReadOnlyCollection<IWebElement> _listDropDownTitleSpans => WaitExtensions.WaitAndGetElements(_driver,
             By.XPath(
                 string.Format("{0}[{1}]/div[2]/div/a/span/span[2]", _listAsideTitlesXpath,

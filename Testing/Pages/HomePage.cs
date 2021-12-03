@@ -19,10 +19,8 @@ namespace Testing.Pages
         private IWebElement _catalogLink =>
             _driver.FindElement(By.XPath("(//span[@class='b-main-navigation__text'])[1]"));
 
-        private By _profileImageDivBy => By.XPath("//div[contains(@class, 'b-top-profile__image')]");
+        private By _onlinerLogoBy => By.XPath("//img[@class='onliner_logo']");
 
-        private IWebElement _profileImageDiv =>
-            _driver.FindElement(_profileImageDivBy);
 
         public SearchFrame SearchFrame => new SearchFrame(_driver, By.XPath("//iframe[@class='modal-iframe']"));
 
@@ -32,11 +30,10 @@ namespace Testing.Pages
         public void ClickCatalogLink() => _catalogLink.Click();
 
 
-        public override bool IsLoaded()
+        protected override bool WaitForPageLoad()
         {
-            WaitForPageLoad();
             new WebDriverWait(_driver, TimeSpan.FromSeconds(TestSettings.ElementTimeout)).Until(
-                ExpectedConditions.ElementExists(_profileImageDivBy));
+                ExpectedConditions.ElementExists(_onlinerLogoBy));
             return _driver.Url == TestSettings.HomeUrl;
         }
     }

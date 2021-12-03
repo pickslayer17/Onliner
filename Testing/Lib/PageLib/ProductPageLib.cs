@@ -5,15 +5,14 @@ namespace Testing.Lib
 {
     public class ProductPageLib
     {
-        public readonly ComparePage ComparePage;
-        public readonly ProductPage ProductPage;
-        public readonly TvPage TvPage;
+        private readonly IWebDriver _driver;
+        public  ComparePage ComparePage => new ComparePage(_driver);
+        public  ProductPage ProductPage => new ProductPage(_driver);
+        public  TvPage TvPage => new TvPage(_driver);
 
         public ProductPageLib(IWebDriver driver)
         {
-            ProductPage = new ProductPage(driver);
-            ComparePage = new ComparePage(driver);
-            TvPage = new TvPage(driver);
+            _driver = driver;
         }
     }
 }
