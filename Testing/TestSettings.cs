@@ -20,6 +20,9 @@ namespace Testing
         public static string UserPassword { get; set; }
         public static string ProductName { get; set; }
         public static string ProductNameAlt { get; set; }
+        public static string CellWhiteColor { get; set; }
+        public static string CellOrangeColor { get; set; }
+
 
         public static void SetDefaultValues()
         {
@@ -31,6 +34,8 @@ namespace Testing
             UserPassword = TestConfiguration["Settings:Test:User:Password"];
             ProductName = TestConfiguration["Settings:Test:Product:Name"];
             ProductNameAlt = TestConfiguration["Settings:Test:Product:NameAlt"];
+            CellWhiteColor = TestConfiguration["Settings:Test:CompareColor:White"];
+            CellOrangeColor = TestConfiguration["Settings:Test:CompareColor:Orange"];
         }
 
         private static int TryParseIntValue(string valueFromTestSettings)

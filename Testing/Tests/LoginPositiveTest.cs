@@ -11,7 +11,7 @@ namespace Testing
             var password = TestSettings.UserPassword;
             LoginUserPassword(user, password);
             Assert.That(App.Pages.AccountPage.IsLoaded, "Page is not loaded");
-            }
+        }
 
         private void LoginUserPassword(string name, string password)
         {

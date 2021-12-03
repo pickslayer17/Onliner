@@ -16,6 +16,10 @@
       "Product": {
         "Name": "Thinkpad T14",
         "NameAlt": "Thinkpad T14S"
+      },
+      "CompareColor": {
+        "White": "rgba(255, 255, 255, 1)",
+        "Orange": "rgba(255, 236, 196, 1)"
       }
     }
   }

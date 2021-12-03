@@ -26,5 +26,6 @@ namespace Testing.Pages.CatalogPages
         public void ClickAddToCompareCheckbox() => _addToCompareCheckBox.Click();
         public void ClickComparePopup() => _comparePopup.Click();
         public void ClickFirstVendorCart() => _firstVendorAddToCartLink.Click();
+        public void ClickToCartButton() => _toCartButton.Click();
     }
 }

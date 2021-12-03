@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using OpenQA.Selenium;
 using Testing.Extensions;
 
@@ -35,9 +36,8 @@ namespace Testing.Pages.CatalogPages
                     var name = GetCellNameFromCell(cells[1]);
                     //Values begin from number "2" and continue depends on count of comparing items
                     var value = GetCellValueFromCell(cells[index + 2]);
-                    var isWhiteString = GetCellColorFromCell(cells[index + 2]);
-                    var isWhite = isWhiteString == "rgba(255, 255, 255, 1)";
-                    var pc = new ProductCharacteristic(name, value, isWhite);
+                    var color = GetCellColorFromCell(cells[index + 2]);
+                    var pc = new ProductCharacteristic(name, value, color);
                     productCharacteristics.Add(pc);
                 }
             }
@@ -48,8 +48,12 @@ namespace Testing.Pages.CatalogPages
 
         private string GetCellNameFromCell(IWebElement cell) => cell.GetAttribute("innerHTML");
 
-        private string GetCellValueFromCell(IWebElement cell) =>
-            GetCellSpanFromCell(cell).GetAttribute("innerHTML");
+        private string GetCellValueFromCell(IWebElement cell)
+        {
+            var value = GetCellSpanFromCell(cell).GetAttribute("innerHTML");
+            if (value == "") value = GetCellSpanFromCell(cell).GetAttribute("class").Split(" ").Last();
+            return value;
+        }
 
         private string GetCellColorFromCell(IWebElement cell) =>
             cell.FindElement(By.XPath("ancestor::td")).GetCssValue("background-color");

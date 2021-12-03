@@ -8,7 +8,7 @@ namespace Testing.Pages
     public abstract class AbstractPage
     {
         protected readonly IWebDriver _driver;
-        
+
         protected AbstractPage(IWebDriver driver)
         {
             _driver = driver;

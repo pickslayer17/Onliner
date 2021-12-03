@@ -10,10 +10,12 @@ namespace Testing.Pages.CatalogPages
         public AccountPage(IWebDriver driver) : base(driver)
         {
         }
+
         private By _profileImageDivBy => By.XPath("//div[contains(@class, 'b-top-profile__image')]");
-        
+
         private IWebElement _profileImageDiv =>
             _driver.FindElement(_profileImageDivBy);
+
         protected override bool WaitForPageLoad()
         {
             new WebDriverWait(_driver, TimeSpan.FromSeconds(TestSettings.ElementTimeout)).Until(
