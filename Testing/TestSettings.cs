@@ -23,7 +23,6 @@ namespace Testing
         public static string CellWhiteColor { get; set; }
         public static string CellOrangeColor { get; set; }
 
-
         public static void SetDefaultValues()
         {
             PageTimeout = TryParseIntValue(TestConfiguration["Settings:Common:Timeouts:Page"]);

@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 
 namespace Testing
 {
@@ -9,7 +10,7 @@ namespace Testing
         {
             var user = TestSettings.UserName;
             var password = TestSettings.UserPassword;
-            LoginUserPassword(user, password);
+            LoginUserPassword(user, password); 
             Assert.That(App.Pages.AccountPage.IsLoaded, "Page is not loaded");
         }
 
