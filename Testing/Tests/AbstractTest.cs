@@ -30,7 +30,7 @@ namespace Testing
             new DriverManager().SetUpDriver(driverConfig, VersionResolveStrategy.MatchingBrowser);
             ChromeOptions co = new ChromeOptions();
             co.AddArguments("--no-sandbox");
-            co.AddArgument("headless");
+            // co.AddArgument("headless");
             // co.AddArguments("enable-automation");
             // co.AddArguments("--disable-infobars");
             // co.AddArguments("--disable-dev-shm-usage");
@@ -39,14 +39,20 @@ namespace Testing
             _driver = new ChromeDriver(co);
             _driver.Manage().Window.Maximize();
             App = new AppLib(_driver);
-            List<string> a = new List<string>();
-            
         }
 
         [TearDown]
         public void TearDown()
         {
             _driver.Close();
+        }
+        protected void LoginUserPassword(string name, string password)
+        {
+            App.Flow.GoTo(TestSettings.HomeUrl);
+            App.Pages.HomePage.ClickEnterButton();
+            App.Pages.LoginPage.FillEmail(name);
+            App.Pages.LoginPage.FillPassword(password);
+            App.Pages.LoginPage.ClickEnterButton();
         }
     }
 }

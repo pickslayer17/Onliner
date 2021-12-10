@@ -7,5 +7,6 @@
     &lt;ProjectFile&gt;768FE373-3702-4252-A333-9BC2ED726C1E/d:Tests/f:ProductComparingTest.cs&lt;/ProjectFile&gt;&#xD;
     &lt;ProjectFile&gt;768FE373-3702-4252-A333-9BC2ED726C1E/d:Tests/f:ProductBuyingTest.cs&lt;/ProjectFile&gt;&#xD;
     &lt;ProjectFile&gt;768FE373-3702-4252-A333-9BC2ED726C1E/d:Tests/f:FileTest.cs&lt;/ProjectFile&gt;&#xD;
+    &lt;ProjectFile&gt;768FE373-3702-4252-A333-9BC2ED726C1E/d:SpecFlow/d:Features/f:ProductBuying.feature.cs&lt;/ProjectFile&gt;&#xD;
   &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

@@ -1,9 +1,11 @@
 ﻿using System;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using TechTalk.SpecFlow;
 
 namespace Testing
 {
+
     public class ProductBuyingTest : AbstractTest
     {
         [Test]
@@ -27,7 +29,6 @@ namespace Testing
             App.Pages.ProductPageLib.CartPage.ClickFirstProductGoToOrdering();
             Assert.That(App.Pages.OrderingPage.IsLoaded(), "Page is not loaded");
         }
-
         private void Login()
         {
             var user = TestSettings.UserName;
@@ -35,13 +36,6 @@ namespace Testing
             LoginUserPassword(user, password);
         }
 
-        private void LoginUserPassword(string name, string password)
-        {
-            App.Flow.GoTo(TestSettings.HomeUrl);
-            App.Pages.HomePage.ClickEnterButton();
-            App.Pages.LoginPage.FillEmail(name);
-            App.Pages.LoginPage.FillPassword(password);
-            App.Pages.LoginPage.ClickEnterButton();
-        }
+        
     }
 }
