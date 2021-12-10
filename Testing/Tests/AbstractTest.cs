@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -27,9 +28,19 @@ namespace Testing
         {
             IDriverConfig driverConfig = new ChromeConfig();
             new DriverManager().SetUpDriver(driverConfig, VersionResolveStrategy.MatchingBrowser);
-            _driver = new ChromeDriver();
+            ChromeOptions co = new ChromeOptions();
+            co.AddArguments("--no-sandbox");
+            co.AddArgument("headless");
+            // co.AddArguments("enable-automation");
+            // co.AddArguments("--disable-infobars");
+            // co.AddArguments("--disable-dev-shm-usage");
+            // co.AddArguments("--disable-browser-side-navigation");
+            co.AddArguments("--disable-gpu");
+            _driver = new ChromeDriver(co);
             _driver.Manage().Window.Maximize();
             App = new AppLib(_driver);
+            List<string> a = new List<string>();
+            
         }
 
         [TearDown]

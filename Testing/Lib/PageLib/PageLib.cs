@@ -21,7 +21,7 @@ namespace Testing.Lib
         public HomePage HomePage => new HomePage(_driver);
         public AccountPage AccountPage => new AccountPage(_driver);
         public LoginPage LoginPage => new LoginPage(_driver);
-
         public OrderingPage OrderingPage => new OrderingPage(_driver);
+        public FileTestPage FileTestPage => new FileTestPage(_driver);
     }
 }
